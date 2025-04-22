@@ -2,4 +2,4 @@
 
 # Simple run script for faster testing
 
-python -m wifi-sentry
+source ./.env && python -m wifi-sentry
