@@ -2,3 +2,4 @@ numpy==2.1.0
 scikit-learn==1.6.1
 pandas==2.2.3
 scapy==2.6.1
+python-dotenv==1.1.0
