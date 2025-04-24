@@ -9,6 +9,7 @@ class WifiSentryConfig:
     """
     _known_hosts: dict = {}
     _interface: str
+    debug = False
 
     def __init__(self, interface: str, known_hosts_file: str = None):
         """Create a config instance
