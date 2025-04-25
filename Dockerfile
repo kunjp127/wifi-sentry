@@ -1,8 +1,6 @@
-FROM debian:bullseye
+FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     iproute2 \
     wireless-tools \
     net-tools \
@@ -13,13 +11,15 @@ RUN apt-get update && apt-get install -y \
     pciutils \
     kmod \
     procps \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /wifi-sentry
-COPY . /wifi-sentry
 
-RUN pip3 install -r requirements.txt
+COPY . .
+
+RUN pip install -r requirements.txt
 
 RUN chmod +x run.sh mon-up.sh mon-down.sh
 
-CMD ["bash"]
+CMD ["bash" , "./run.sh"]
