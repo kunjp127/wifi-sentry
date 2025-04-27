@@ -1,3 +1,4 @@
 #!/bin/bash
-airmon-ng check kill
-airmon-ng start "$IFACE_NAME"
+source ./.env
+sudo airmon-ng check kill
+sudo airmon-ng start "$IFACE_NAME"
