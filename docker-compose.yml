@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  wifi-sentry:
+    build: .
+    container_name: wifi-sentry
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN  
+      - NET_RAW           
+    devices:
+      - "/dev/net/tun"    
+    environment:
+      - PYTHONUNBUFFERED=1
+      #- IFACE_NAME=wlp1s0
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
